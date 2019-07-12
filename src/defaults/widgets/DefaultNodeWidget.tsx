@@ -15,7 +15,10 @@ export interface DefaultNodeState {}
 /**
  * @author Dylan Vorster
  */
-export class DefaultNodeWidget extends BaseWidget<DefaultNodeProps, DefaultNodeState> {
+export class DefaultNodeWidget extends BaseWidget<
+	DefaultNodeProps,
+	DefaultNodeState
+> {
 	constructor(props: DefaultNodeProps) {
 		super("srd-default-node", props);
 		this.state = {};
@@ -27,16 +30,30 @@ export class DefaultNodeWidget extends BaseWidget<DefaultNodeProps, DefaultNodeS
 
 	render() {
 		return (
-			<div {...this.getProps()} style={{ background: this.props.node.color }}>
+			<div
+				{...this.getProps()}
+				style={{ background: this.props.node.color }}
+			>
 				<div className={this.bem("__title")}>
-					<div className={this.bem("__name")}>{this.props.node.name}</div>
+					<div className={this.bem("__name")}>
+						{this.props.node.name}
+					</div>
+					<div className={this.bem("__subtitle")}>
+						{this.props.node.subtitle}
+					</div>
 				</div>
 				<div className={this.bem("__ports")}>
 					<div className={this.bem("__in")}>
-						{_.map(this.props.node.getInPorts(), this.generatePort.bind(this))}
+						{_.map(
+							this.props.node.getInPorts(),
+							this.generatePort.bind(this)
+						)}
 					</div>
 					<div className={this.bem("__out")}>
-						{_.map(this.props.node.getOutPorts(), this.generatePort.bind(this))}
+						{_.map(
+							this.props.node.getOutPorts(),
+							this.generatePort.bind(this)
+						)}
 					</div>
 				</div>
 			</div>

@@ -57,7 +57,7 @@ export class NodeModel<T extends NodeModelListener = NodeModelListener> extends 
 			_.forEach(this.ports, port => {
 				entities = entities.concat(
 					_.map(port.getLinks(), link => {
-						return link.getPointForPort(port);
+						return link.getPointForPort(port) as any;
 					})
 				);
 			});
