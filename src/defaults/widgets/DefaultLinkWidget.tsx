@@ -167,7 +167,7 @@ export class DefaultLinkWidget extends BaseWidget<
 				path
 			),
 			{
-				ref: ref => ref && this.refPaths.push(ref)
+				ref: ref => ref && this.refPaths.push(ref.children[1])
 			}
 		);
 
