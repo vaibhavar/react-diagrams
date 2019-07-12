@@ -33,6 +33,7 @@ export class DefaultNodeWidget extends BaseWidget<
 			<div
 				{...this.getProps()}
 				style={{ background: this.props.node.color }}
+				data-node={this.props.node.data}
 			>
 				<div className={this.bem("__title")}>
 					<div className={this.bem("__name")}>
