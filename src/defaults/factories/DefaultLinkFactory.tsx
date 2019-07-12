@@ -39,7 +39,7 @@ export class DefaultLinkFactory extends AbstractLinkFactory<DefaultLinkModel> {
 						id="arrow"
 						markerWidth="100"
 						markerHeight="100"
-						refX="5"
+						refX="6"
 						refY="2"
 						orient="auto"
 						markerUnits="stroke-width"
