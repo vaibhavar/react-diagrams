@@ -10,7 +10,9 @@ export interface NodeModelListener extends BaseModelListener {
 	positionChanged?(event: BaseEvent<NodeModel>): void;
 }
 
-export class NodeModel<T extends NodeModelListener = NodeModelListener> extends BaseModel<DiagramModel, T> {
+export class NodeModel<
+	T extends NodeModelListener = NodeModelListener
+> extends BaseModel<DiagramModel, T> {
 	x: number;
 	y: number;
 	extras: any;
@@ -45,7 +47,8 @@ export class NodeModel<T extends NodeModelListener = NodeModelListener> extends 
 
 	positionChanged() {
 		this.iterateListeners(
-			(listener: NodeModelListener, event) => listener.positionChanged && listener.positionChanged(event)
+			(listener: NodeModelListener, event) =>
+				listener.positionChanged && listener.positionChanged(event)
 		);
 	}
 

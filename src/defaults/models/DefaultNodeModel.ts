@@ -11,18 +11,21 @@ import { DiagramEngine } from "../../DiagramEngine";
 export class DefaultNodeModel extends NodeModel<NodeModelListener> {
 	name: string;
 	subtitle?: string;
+	data?: string;
 	color: string;
 	ports: { [s: string]: DefaultPortModel };
 
 	constructor(
 		name: string = "Untitled",
 		color: string = "rgb(0,192,255)",
-		subtitle = ""
+		subtitle = "",
+		data = ""
 	) {
 		super("default");
 		this.name = name;
 		this.color = color;
 		this.subtitle = subtitle;
+		this.data = data;
 	}
 
 	addInPort(label: string): DefaultPortModel {
@@ -36,13 +39,17 @@ export class DefaultNodeModel extends NodeModel<NodeModelListener> {
 	deSerialize(object, engine: DiagramEngine) {
 		super.deSerialize(object, engine);
 		this.name = object.name;
+		this.subtitle = object.subtitle;
+		this.data = object.data;
 		this.color = object.color;
 	}
 
 	serialize() {
 		return _.merge(super.serialize(), {
 			name: this.name,
-			color: this.color
+			subtitle: this.subtitle,
+			color: this.color,
+			data: this.data
 		});
 	}
 
